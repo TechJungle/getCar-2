@@ -1,15 +1,28 @@
 var express = require("express");
-
+var bodyParser=require('body-parser')
+var db = require("./db/db.js")
 var app = express();
 
+app.use(express.static(__dirname + '/'));
 app.get("/",function(req,res){
-  console.log("data is here")
   res.sendFile(__dirname +"/templates/add.html");
 })
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
+
 
 app.post("/add",function(req,res){
-  console.log("data is here")
-  res.end("Done");
+  db.create(req.body,function(err){
+    if(err){
+      throw err;
+    }
+    console.log("data deliverd to db")
+  })
+
+
+  // console.log(req.body)
+  // console.log("data is here")
+  // res.end("Done");
 })
 
 

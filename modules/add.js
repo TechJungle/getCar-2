@@ -5,12 +5,12 @@ module.controller("addCtr",['$scope', '$http', function($scope, $http){
     //collect data from user in one obj
 
      $scope.car = {type : $scope.type , color : $scope.color , price : $scope.price};
+     console.log($scope.car)
     //send the car to the server
-    $http.post("/add" , $scope.car
-)
-    .then(function(){
+    $http.post("/add" , $scope.car)
+    .then(function(data){
       console.log("SUCCESS !!")
-    }, function(){
+    }, function(data){
         console.log("ERROR !!")
       })
 }
