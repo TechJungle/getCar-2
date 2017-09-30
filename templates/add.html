@@ -11,11 +11,10 @@
 
 <body ng-app="add">
 <div ng-controller="addCtr" class="form-group">
-
-<label for="type"> Car Type  </label><input type="text"       ng-model="type"      class="form-control" id="type"></input></br>
-<label for="price"> Price    </label><input type="text"       ng-model="price"     class="form-control" id="price"></input></br>
-<label for="color"> Color    </label><input type="text"       ng-model="color"     class="form-control" id="color"></input></br>
-<label for="add">            </label><input type="submit"     ng-model="add"       class="form-control" id="add"></input>
+<label for="type"> Car Type  </label><input type="text"       ng-model="type"      class="form-control" id="type"  require></input></br>
+<label for="price"> Price    </label><input type="text"       ng-model="price"     class="form-control" id="price" require></input></br>
+<label for="color"> Color    </label><input type="text"       ng-model="color"     class="form-control" id="color" require></input></br>
+<label for="add">            </label><input type="submit"     ng-click="add()"       class="form-control" id="add"   ></input>
   </div>
 </body>
 </html>
