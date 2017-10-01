@@ -22,6 +22,8 @@
   "homepage": "https://github.com/DoaaAlsafadi/getCar#readme",
   "dependencies": {
     "express": "^4.16.1",
+    "mongod": "^2.0.0",
+    "mongoose": "^4.11.14",
     "nodemon": "^1.12.1"
   },
   "devDependencies": {

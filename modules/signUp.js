@@ -21,4 +21,4 @@ var SignUpApp = angular.module('SignUpApp', []);
 				console.log("error??")
 			}) 
 		}
-	});
+	})
