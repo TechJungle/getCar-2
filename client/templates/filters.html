@@ -1,0 +1,41 @@
+<div class = "show" >
+	<show ng-repeat = "item in $ctrl.searchtt | filter: search | filter: type | filter: color"
+		  car = "item">
+		
+	</show>
+	
+</div>
+
+<div class="filters">
+	<div>
+		<input type="text" ng-model="search" placeholder="Search ...">
+	</div>
+	<br/>
+	<h4>Filter By: </h4>
+	<h5>Type:</h5>
+	<form >
+		<div ng-repeat = "item in $ctrl.searchtt | filter: search | filter : color | filter : type" >
+		<input type="radio" name="type" ng-model="$parent.type" value={{item.car}}> {{item.car}} <br/>
+		</div>
+	</form>
+	<br/>
+	<h5>Price:</h5>
+	<form>
+		<input type="radio" name="price" value="< 5000" ng-model="$parent.price"> Less than 5000$ <br/>
+		<input type="radio" name="price" value="5000 - 10000" ng-model="$parent.price"> 5000$ - 10000$ <br/>
+		<input type="radio" name="price" value="> 10000" ng-model="$parent.price"> More than 10000$
+	</form>
+	<br/>
+	<h5>Color:</h5>
+	<form>
+		<div ng-repeat="item in $ctrl.searchtt">
+		<input type="radio" name="type" ng-model="$parent.color" value={{item.color}}> {{item.color}} <br/>
+		</div>
+	</form>
+
+	<ul ng-repeat="item in $ctrl.searchtt  | filter: search | filter : color | filter : type">
+		<li >
+			{{item.car}}
+		</li>
+	</ul>
+</div>
