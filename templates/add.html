@@ -9,12 +9,37 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<body ng-app="add">
-<div ng-controller="addCtr" class="form-group">
-<label for="type"> Car Type  </label><input type="text"       ng-model="type"      class="form-control" id="type"  require></input></br>
-<label for="price"> Price    </label><input type="text"       ng-model="price"     class="form-control" id="price" require></input></br>
-<label for="color"> Color    </label><input type="text"       ng-model="color"     class="form-control" id="color" require></input></br>
-<label for="add">            </label><input type="submit"     ng-click="add()"       class="form-control" id="add"   ></input>
+<body ng-app="add" ng-controller="addCtr">
+  <div class="container">
+    <div class="col-sm-10" style="width : 600px; margin-left: 250px; margin-top: 50px;">
+      <div class="jumbortron">
+        <div  class="form-group">
+            <h1> ADD CAR </h1>
+        </div>
+        <form class="form-horizantal">
+            <div class="form-group input-group" >
+            <label>  Type : </label><input type="text" ng-model="type"  class="form-control" id="type" placeholder="Type Of Your Car ..." require></input>
+          </div>
+          <div class="form-group input-group" >
+              Price : <input type="text" ng-model="price"  class="form-control" id="price"placeholder="Price Of Your Car ..."  require></input>
+        </div>
+        <div class="form-group input-group" >
+              Color :  <input type="text"     ng-model="color"     class="form-control" id="color"  placeholder="Color Of Your Car ..."require></input>
+      </div>
+      <div class="form-group input-group" >
+        <input type="file"   class="form-control" id="image"    placeholder="Upload your Image ..."  readonly></input>
+    </div>
+    <div class="form-group " >
+      <button class = "btn btn-primary "type="submit"     ng-click="add()"     class="form-control"id="add"> Submit </button>
   </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
 </body>
 </html>

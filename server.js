@@ -13,12 +13,10 @@ app.use(express.static(__dirname + '/'));
 
 app.get("/",function(req,res){
   // if(req.session.loggedIn){
-    res.sendFile(__dirname +"/templates/add.html");
+    res.sendFile(__dirname +"/templates/homeBage.html");
   // }
     // res.sendFile(__dirname +"/templates/login.html");
 })
-
-
 
 app.post("/add",function(req,res){
   db.create(req.body,function(err){
@@ -28,7 +26,6 @@ app.post("/add",function(req,res){
     console.log("data deliverd to db")
   })
 })
-
 
 app.listen(1994, function(){
   console.log("I Am Listening to  1994")
