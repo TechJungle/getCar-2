@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.min.js"></script>
+ 	<script src="../modules/home.js"></script>
+</head>
+<body>
+	<div ng-app="home" ng-controller="homeController">
+		<a href="templates/signUp.html">Sign Up</a>
+	</div>
+
+	<!-- <script>
+		var home = angular.module('home', []);
+
+		home.controller('homeController', function($scope, $http) {
+			$scope.goTo=function(){
+				console.log("maram")
+				$http.post("/","").then(function(data){
+					console.log("success")
+				},function(data){
+					console.log("error")
+				})
+			} 			
+		});
+	</script> -->
+</body>
+</html>

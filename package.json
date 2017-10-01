@@ -1,0 +1,30 @@
+{
+  "name": "marammoein",
+  "version": "1.0.0",
+  "description": "This application will help costumers to find their dream car.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DoaaAlsafadi/getCar.git"
+  },
+  "keywords": [
+    "getCar"
+  ],
+  "author": "d.alsafadi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DoaaAlsafadi/getCar/issues"
+  },
+  "homepage": "https://github.com/DoaaAlsafadi/getCar#readme",
+  "dependencies": {
+    "express": "^4.16.1",
+    "nodemon": "^1.12.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}

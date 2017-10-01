@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang='en' ng-app="SignUpApp">
+<head>
+	<title></title>
+	<!-- <script src="lib/angular-route.min.js"></script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<!-- <script  src="modules/index.js"></script> -->
+	
+</head>
+<body>
+	<div ng-controller="signUpController">
+		<h2>CREATE AN ACCOUNT</h2>
+		<form ng-submit="addUser()">
+			<p>Full Name: </p>
+			<input type="text" ng-model="newUser.name" placeholder="User Name"><br>
+			<p>Password: </p>
+			<input type="text" ng-model="newUser.password" placeholder="User Password"><br>
+			<p>Phone Number: </p>
+			<input type="text" ng-model="newUser.numberPhon" placeholder="User Number Phon"><br>
+			<p>Eimal: </p>
+			<input type="text" ng-model="newUser.email" placeholder="User Eimal"><br>
+			<!-- <button>Create Your Account</button> -->
+			<input type="submit" value="add new user">
+		</form>
+			{{newUse}}
+	</div>
+
+
+	<script type="text/javascript">
+		var SignUpApp = angular.module('SignUpApp', []);
+
+		// SignUpApp.config(['$routeProvider', function($routeProvider){
+		// 	$routeProvider.when()
+		// }]);
+
+		// SignUpApp.run(function(){})
+
+		SignUpApp.controller("signUpController",  function($scope, $http){
+		
+			$scope.addUser=function(){
+				$scope.newUse = {
+					name: $scope.newUser.name,
+					password: $scope.newUser.password,
+					numberPhon: parseInt($scope.newUser.numberPhon),
+					email: $scope.newUser.email
+				};
+	
+				$scope.newUser.name = "";
+				$scope.newUser.password = "";
+				$scope.newUser.numberPhon = "";
+				$scope.newUser.email = "";
+
+				//send this x data by $.ajax
+				var x = angular.toJson($scope.newUse)
+				$http.post("127.0.0.1:3000", x).success(function(data){
+					console.log(data)
+				}) 
+			}
+		
+		});
+
+
+	</script>
+</body>
+</html>
