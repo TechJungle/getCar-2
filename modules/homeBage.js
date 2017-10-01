@@ -1,6 +1,11 @@
 var module = angular.module("home",[]);
-module.controller("homeCtr",function($scope){
+module.controller("homeCtr",["$scope","$http",function($scope,$http){
   $scope.addToCard = function(){
-    $scope.name = "Doaa";
+    $http.post("/","")
+      .then(function(data){
+        console.log("SUCCESS !!")
+      }, function(data){
+          console.log("ERROR !!")
+        })
   }
-})
+}])
