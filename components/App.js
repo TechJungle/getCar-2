@@ -1,11 +1,11 @@
-var module = angular.module("test",[])
+var module = angular.module("butt",[])
 
-module.controller("es",function($scope){
-	
-	// function carHomepageCtrl ($scope){
-$scope.WELCOM=2;
-// }
-
+module.controller("buttCtrl",function($scope){
+	// $scope.logIn = function(){
+ //    	$scope.name = "fill it";
+ //  }
 })
+
+
 
 

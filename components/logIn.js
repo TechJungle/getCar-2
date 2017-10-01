@@ -1,12 +1,13 @@
-var module = angular.module("log",[])
+var module = angular.module("logIn",[]);
 
-module.controller("loginCtrl",['$scope','$http', function($scope, $http){
+module.controller("logInCtrl",['$scope','$http', function($scope, $http){
 	
 	$scope.submit = function(){
-		$scope.user = {user:$scope.username , password:$scope.password}
-		$http.post("/template/logIn", $scope.user).then(function(){
+		$scope.user = {user : $scope.username , password : $scope.password};
+		console.log($scope.user)
+		$http.post("/logIn", $scope.user).then(function(data){
 			console.log("success")
-		}, function(){
+		}, function(data){
 			console.log("error")
 		})
 	}

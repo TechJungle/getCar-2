@@ -1,12 +1,13 @@
   	<!doctype html>
-<html ng-app="log">
+<html ng-app="logIn">
   <head>
     <title>My AngularJS App</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <script type="text/javascript" src="../components/logIn.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../components/logIn.js"></script>
   </head>
-  <body>
-    <div ng-controller="loginCtrl">
+  <body >
+    <div ng-controller="logInCtrl">
       <h2> log in: </h2> 
       <form action = "/" id = "myLogin">
       username: <input type = "text" id="username"  ng-model = "username"> 
@@ -20,8 +21,7 @@
       <br/>
 
       <button type="button" ng-click = "submit()">Login</button>    
-      
-      {{user}}
+     
       </form>
           
     </div>
