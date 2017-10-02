@@ -23,14 +23,26 @@ app.get('/data',function(req, res){
 	// res.end()
 })
 var home = JSON.stringify("http://localhost:5000/index.html");
+
 app.post("/logIn",function(req,res){
 	console.log(req.body.user)
 	var red = "index.html"
 	user.findOne({username: req.body.user, password: req.body.password}, function(err, data){
-		if (data){ res.send(home)
-} else{console.log('wrong')}
-	})
+		if (data){ 
+			res.send(home)
+			req.session.regenerate(function() {
+      			// req.session.user = newUser;
+    			})
+		} else{console.log('wrong')}
+	})	
 })
+
+app.get('/logout', function(req, res) {
+  res.send(home)
+  req.session.destroy(function() {
+  })
+
+});
 
 app.post("/signUp",function(req,res){
 	console.log(req.body)
