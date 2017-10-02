@@ -1,34 +1,74 @@
 var express = require('express');
 var morgan = require('morgan');
+var bodyParser=require('body-parser');
 var path = require('path')
+var user = require("./db/db.js");
+var car = require("./db/carDB.js")
 var app = express();
 
 app.use(morgan('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
 
 app.use(express.static(__dirname + '/'));
 
-var searchTest=[{car:"BMW", color:'red', img: 'https://auto.ndtvimg.com/car-images/big/dc/avanti/dc-avanti.jpg?v=26'},
-				{car:"Mercedes", color:"red", img: "https://auto.ndtvimg.com/car-images/big/dc/avanti/dc-avanti.jpg?v=26"},
-				{car:"Mitsubishi", color:'blue', img: "https://auto.ndtvimg.com/car-images/big/dc/avanti/dc-avanti.jpg?v=26"},
-				{car:'Tesla', color: 'purple',img: "https://auto.ndtvimg.com/car-images/big/dc/avanti/dc-avanti.jpg?v=26"},
-				{car:'mercedes', color:'blue', img: "https://auto.ndtvimg.com/car-images/big/dc/avanti/dc-avanti.jpg?v=26"},{car:"BMW", color:'red', img: 'https://auto.ndtvimg.com/car-images/big/dc/avanti/dc-avanti.jpg?v=26'},
-				{car:"Mercedes", color:"red", img: "https://auto.ndtvimg.com/car-images/big/dc/avanti/dc-avanti.jpg?v=26"},
-				{car:"Mitsubishi", color:'blue', img: "https://auto.ndtvimg.com/car-images/big/dc/avanti/dc-avanti.jpg?v=26"},
-				{car:'Tesla', color: 'purple',img: "https://auto.ndtvimg.com/car-images/big/dc/avanti/dc-avanti.jpg?v=26"},
-				{car:'mercedes', color:'blue', img: "https://auto.ndtvimg.com/car-images/big/dc/avanti/dc-avanti.jpg?v=26"},{car:"BMW", color:'red', img: 'https://auto.ndtvimg.com/car-images/big/dc/avanti/dc-avanti.jpg?v=26'},
-				{car:"Mercedes", color:"red", img: "https://auto.ndtvimg.com/car-images/big/dc/avanti/dc-avanti.jpg?v=26"},
-				{car:"Mitsubishi", color:'blue', img: "https://auto.ndtvimg.com/car-images/big/dc/avanti/dc-avanti.jpg?v=26"},
-				{car:'Tesla', color: 'purple',img: "https://auto.ndtvimg.com/car-images/big/dc/avanti/dc-avanti.jpg?v=26"},
-				{car:'mercedes', color:'blue', img: "https://auto.ndtvimg.com/car-images/big/dc/avanti/dc-avanti.jpg?v=26"},{car:"BMW", color:'red', img: 'https://auto.ndtvimg.com/car-images/big/dc/avanti/dc-avanti.jpg?v=26'},
-				{car:"Mercedes", color:"red", img: "https://auto.ndtvimg.com/car-images/big/dc/avanti/dc-avanti.jpg?v=26"},
-				{car:"Mitsubishi", color:'blue', img: "https://auto.ndtvimg.com/car-images/big/dc/avanti/dc-avanti.jpg?v=26"},
-				{car:'Tesla', color: 'purple',img: "https://auto.ndtvimg.com/car-images/big/dc/avanti/dc-avanti.jpg?v=26"},
-				{car:'mercedes', color:'blue', img: "https://auto.ndtvimg.com/car-images/big/dc/avanti/dc-avanti.jpg?v=26"}];
-
 app.get('/data', function(req, res){
-	res.json(searchTest)
-	res.end()
+	car.find({}, function(err,data){
+		console.log(data)
+		res.json(data)
+	})
+	// res.json(searchTest)
+	// res.end()
 })
+
+app.post("/logIn",function(req,res){
+	console.log(req.body.user)
+	user.findOne({username: req.body.user, password: req.body.password}, function(err, data){
+		if (data){
+} else{console.log('wrong')}
+	})	
+})
+
+app.get("/index", function(req, res){
+	// res.redirect('./index.html')
+})
+
+app.post("/signUp",function(req,res){
+	console.log(req.body)
+  
+    var userr = new user ({
+	username: req.body.name,
+	password: req.body.password,
+	phone: req.body.numberPhon,
+	email: req.body.email })
+userr.save(function(err, userr){
+	if (err){
+		console.log(err)
+	}
+})
+       
+    res.end()
+})
+
+app.post("/add",function(req,res){
+	console.log(req.body)
+
+    var carr = new car ({
+	type: req.body.type,
+	color: req.body.color,
+	price: req.body.price,
+	image: req.body.image
+}) 
+    carr.save(function(err, carr){
+	if (err){
+		console.log(err)
+	}
+})
+// res.redirect("localhost:5000/index.html")
+
+
+})
+
 var port = process.env.PORT || 5000;
 
 app.listen(port, function() {

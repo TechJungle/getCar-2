@@ -15,7 +15,7 @@
 	<h5>Type:</h5>
 	<form >
 		<div ng-repeat = "item in $ctrl.searchtt | filter: search | filter : color | filter : type" >
-		<input type="radio" name="type" ng-model="$parent.type" value={{item.car}}> {{item.car}} <br/>
+		<input type="radio" name="type" ng-model="$parent.type" value={{item.type}}> {{item.type}} <br/>
 		</div>
 	</form>
 	<br/>
