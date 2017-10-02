@@ -56,7 +56,28 @@ angular.module('get-car')
   //     // 		$scope.searchTest2, val)
   //     // 	$scope.searchTest2=$scope.searchtt;
   //     // })
+  $scope.rangeMin = 0;
+  $scope.rangeMax = 1000000;
+$scope.filterRange = function(obj) {
+    return obj.price > $scope.rangeMin && obj.price <= $scope.rangeMax;
+};
+$scope.all = function(){
+    $scope.rangeMin = 0;
+  $scope.rangeMax = 1000000;
+  }
 
+  $scope.min = function(){
+    $scope.rangeMin = 0;
+  $scope.rangeMax = 5000;
+  }
+  $scope.mid = function(){
+    $scope.rangeMin = 5000;
+  $scope.rangeMax = 10000;
+  }
+  $scope.max = function(){
+    $scope.rangeMin = 1000;
+  $scope.rangeMax = 1000000;
+  }
 	},
 
 	templateUrl: `

@@ -2,7 +2,6 @@
 <html ng-app="logIn">
   <head>
     <title>My AngularJS App</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
@@ -27,22 +26,15 @@
     </div>
 
 <script type="text/javascript">
-  var module = angular.module("logIn",['ngRoute']).config(function($routeProvider, $locationProvider){
-    $locationProvider.html5Mode(true);
+  var module = angular.module("logIn",[])
 
-    $routeProvider.
-    when('/', {templateUrl:'/index.html'})
-  })
-
-module.controller("logInCtrl",['$scope','$http','$location', function($scope, $http, $location){
-
+module.controller("logInCtrl",['$scope','$http', function($scope, $http){
+  
   $scope.submit = function(){
     $scope.user = {user : $scope.username , password : $scope.password};
     console.log($scope.user)
-    $http.post("/logIn", $scope.user).then(function(err, data){
-      if(err.status === 200){
-        $location.path('/')
-      }
+    $http.post("/logIn", $scope.user).then(function(data){
+        window.location = "../../index.html"
     })
   }
 
