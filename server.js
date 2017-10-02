@@ -5,14 +5,16 @@ var path = require('path')
 var user = require("./db/db.js");
 var car = require("./db/carDB.js")
 var app = express();
+var session = require("express-session")
 
+app.use(session({secret : "session"}))
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
-
 app.use(express.static(__dirname + '/'));
 
-app.get('/data', function(req, res){
+
+app.get('/data',function(req, res){
 	car.find({}, function(err,data){
 		console.log(data)
 		res.json(data)
@@ -26,7 +28,7 @@ app.post("/logIn",function(req,res){
 	user.findOne({username: req.body.user, password: req.body.password}, function(err, data){
 		if (data){
 } else{console.log('wrong')}
-	})	
+	})
 })
 
 app.get("/index", function(req, res){
@@ -35,7 +37,7 @@ app.get("/index", function(req, res){
 
 app.post("/signUp",function(req,res){
 	console.log(req.body)
-  
+
     var userr = new user ({
 	username: req.body.name,
 	password: req.body.password,
@@ -46,27 +48,25 @@ userr.save(function(err, userr){
 		console.log(err)
 	}
 })
-       
+
     res.end()
 })
 
 app.post("/add",function(req,res){
-	console.log(req.body)
-
+	//  if(req.session.loggedIn){
     var carr = new car ({
 	type: req.body.type,
 	color: req.body.color,
 	price: req.body.price,
 	image: req.body.image
-}) 
+})
     carr.save(function(err, carr){
 	if (err){
 		console.log(err)
 	}
 })
-// res.redirect("localhost:5000/index.html")
-
-
+// }
+	// res.alert("Please Log In .....")
 })
 
 var port = process.env.PORT || 5000;

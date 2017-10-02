@@ -8,22 +8,22 @@
   </head>
   <body >
     <div ng-controller="logInCtrl">
-      <h2> log in: </h2> 
+      <h2> log in: </h2>
       <form action = "/" id = "myLogin">
-      username: <input type = "text" id="username"  ng-model = "username"> 
-      
+      username: <input type = "text" id="username"  ng-model = "username">
+
       <br/>
       <br/>
 
-      password:  <input type = "password" id="password" ng-model = "password"> 
-      
+      password:  <input type = "password" id="password" ng-model = "password">
+
       <br/>
       <br/>
 
-      <button type="button" ng-click = "submit()">Login</button>    
-     
+      <button type="button" ng-click = "submit()">Login</button>
+
       </form>
-          
+
     </div>
 
 <script type="text/javascript">
@@ -35,7 +35,7 @@
   })
 
 module.controller("logInCtrl",['$scope','$http','$location', function($scope, $http, $location){
-  
+
   $scope.submit = function(){
     $scope.user = {user : $scope.username , password : $scope.password};
     console.log($scope.user)
@@ -51,8 +51,3 @@ module.controller("logInCtrl",['$scope','$http','$location', function($scope, $h
 </script>
   </body>
 </html>
-
-
-     
-      
-   
