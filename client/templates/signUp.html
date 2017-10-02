@@ -42,7 +42,7 @@
 				$scope.newUser.email = "";
 
 				$http.post("/signUp", $scope.newUse).then(function(data){
-					console.log("success post")
+					window.location = "../../index.html"
 				}, function(data){
 					console.log("error??")
 				}) 

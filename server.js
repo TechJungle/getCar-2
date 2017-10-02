@@ -20,17 +20,14 @@ app.get('/data', function(req, res){
 	// res.json(searchTest)
 	// res.end()
 })
-
+var home = JSON.stringify("http://localhost:5000/index.html");
 app.post("/logIn",function(req,res){
 	console.log(req.body.user)
+	var red = "index.html"
 	user.findOne({username: req.body.user, password: req.body.password}, function(err, data){
-		if (data){
+		if (data){ res.send(home)
 } else{console.log('wrong')}
 	})	
-})
-
-app.get("/index", function(req, res){
-	// res.redirect('./index.html')
 })
 
 app.post("/signUp",function(req,res){
@@ -64,7 +61,7 @@ app.post("/add",function(req,res){
 		console.log(err)
 	}
 })
-// res.redirect("localhost:5000/index.html")
+res.end(home)
 
 
 })
