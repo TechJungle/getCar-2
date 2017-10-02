@@ -1,0 +1,63 @@
+<!Doctype html>
+<html>
+<head>
+  <title> </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script><!-- 
+  <script src="../modules/add.js"></script> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body ng-app="add" ng-controller="addCtr">
+  <div class="container">
+    <div class="col-sm-10" style="width : 600px; margin-left: 250px; margin-top: 50px;">
+      <div class="jumbortron">
+        <div  class="form-group">
+            <h1> ADD CAR </h1>
+        </div>
+        <form class="form-horizantal">
+            <div class="form-group input-group" >
+            <label>  Type : </label><input type="text" ng-model="type"  class="form-control" id="type" placeholder="Type Of Your Car ..." require></input>
+          </div>
+          <div class="form-group input-group" >
+              Price : <input type="text" ng-model="price"  class="form-control" id="price" placeholder="Price Of Your Car ..."  require></input>
+        </div>
+        <div class="form-group input-group" >
+              Color :  <input type="text"     ng-model="color"     class="form-control" id="color"  placeholder="Color Of Your Car ..." require></input>
+      </div>
+      <div class="form-group input-group" >
+        <input type="text"   class="form-control" id="image"    placeholder="Upload your Image ..." ></input>
+    </div>
+    <div class="form-group " >
+      <button class = "btn btn-primary " type="submit"     ng-click="add()"     class="form-control" id="add"> Submit </button>
+  </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript">
+  var module = angular.module("add",[]);
+module.controller("addCtr",['$scope', '$http', function($scope, $http){
+  $scope.add = function(){
+  $scope.image = document.getElementById("image").value;
+    //collect data from user in one obj
+  $scope.car = {type : $scope.type , color : $scope.color , price : $scope.price , image : $scope.image};
+     console.log($scope.car)
+    //send the car to the server
+  $http.post("/add" , $scope.car)
+    .then(function(data){
+      console.log("SUCCESS !!")
+    }, function(data){
+        console.log("ERROR !!")
+      })
+}
+}])
+
+</script>
+
+
+
+</body>
+</html>

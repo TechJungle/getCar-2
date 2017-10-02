@@ -1,31 +1,30 @@
 {
-  "name": "doaaalsafadi",
+  "name": "getcar",
   "version": "1.0.0",
   "description": "This application will help costumers to find their dream car.",
-  "main": "server.js",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.1",
+    "live-server": "^1.2.0",
+    "mongoose": "^4.11.14",
+    "nodemon": "^1.12.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "nodemon server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DoaaAlsafadi/getCar.git"
+    "url": "git+https://github.com/ElectricFiras/getCar.git"
   },
   "keywords": [
-    "getCar"
+    "car"
   ],
-  "author": "d.alsafadi",
+  "author": "TechJungle",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DoaaAlsafadi/getCar/issues"
+    "url": "https://github.com/ElectricFiras/getCar/issues"
   },
-  "homepage": "https://github.com/DoaaAlsafadi/getCar#readme",
-  "dependencies": {
-    "express": "^4.16.1",
-    "express-session": "^1.15.6",
-    "nodemon": "^1.12.1"
-  },
-  "devDependencies": {
-    "nodemon": "^1.12.1"
-  }
+  "homepage": "https://github.com/ElectricFiras/getCar#readme"
 }
