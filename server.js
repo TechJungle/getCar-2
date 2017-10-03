@@ -8,6 +8,8 @@ var bcrypt = require('bcrypt-nodejs');
 var Promise = require('bluebird');
 var app = express();
 var session = require("express-session")
+var Promise = require('bluebird')
+var bcrypt = require('bcrypt-nodejs')
 
 app.use(session({secret : "session"}))
 app.use(morgan('dev'));
@@ -25,14 +27,60 @@ app.get('/data',function(req, res){
 	// res.end()
 })
 var home = JSON.stringify("http://localhost:5000/index.html");
+
+// var comparePassword = function(attemptedPassword, req, callback) {
+// 	var pass = req.body.password;
+//     bcrypt.compare(attemptedPassword, pass, function(err, isMatch) {
+//       callback(isMatch);
+//     });
+//   };
+
+
 app.post("/logIn",function(req,res){
-	console.log(req.body.user)
-	var red = "index.html"
-	user.findOne({username: req.body.user, password: req.body.password}, function(err, data){
-		if (data){ res.send(home)
-} else{console.log('wrong')}
-	})
-})
+
+	var pass = req.body.password;
+	console.log(req.body.user);
+	var red = "index.html";
+	
+	// password: req.body.password
+	user.findOne({username: req.body.user}, function(err, user){
+		if (!user){ 
+			console.log('wrong')
+			} else { 
+				bcrypt.compare(req.body.password, user.password, function(err, hash){
+					if(hash){
+						if(user.username === req.body.user){
+							res.send(home)
+							req.session.regenerate(function() {
+       							// req.session.user = newUser;
+    						})
+						}else {
+			            	res.redirect('/login');
+			            	console.log('wrrrrrrrrrong');
+			          		}
+			        } 
+			
+				})
+		
+            }	
+	});
+	res.end()			
+});
+
+
+
+
+app.get('/logout', function(req, res) {
+  
+  req.session.destroy(function() {
+  })
+  res
+
+
+
+  .end(home)
+  // res.send(home)
+});
 var hashPassword = function(string) {
     var cipher = Promise.promisify(bcrypt.hash);
     return cipher(string, null, null)
@@ -40,6 +88,7 @@ var hashPassword = function(string) {
         console.log(hash,"=====================================hashed password");
       });
   }
+
 
 app.post("/signUp",function(req,res){
 	console.log(req.body)
@@ -77,6 +126,6 @@ res.end(home)
 
 var port = process.env.PORT || 5000;
 
-app.listen(port, function() {
+app.listen(5000, function() {
   console.log(`listening on port ${port}`);
 });

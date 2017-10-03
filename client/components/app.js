@@ -10,7 +10,7 @@ angular.module('get-car')
 	.then(
 		function(response){
 			console.log($scope.$ctrl.searchTest)
-			console.log(this.searchTest)
+			// console.log(this.searchTest)
 			for (var i=0; i<response.data.length; i++){
 				$scope.$ctrl.searchTest.push(response.data[i])
 			}
