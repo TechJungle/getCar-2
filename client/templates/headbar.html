@@ -5,7 +5,7 @@
 			<a  ng-hide= "$ctrl.loog" ng-model="LogIn" ng-click="log()">Log In</a> 
 		    <a  ng-hide = "$ctrl.loog" ng-click = "sign()">Sign Up</a> 
 			<a ng-show = "$ctrl.loog" ng-click = "add()" >Add</a> 
-			<a href="#" ng-show = "$ctrl.loog">Log Out</a> 
+			<a href="#" ng-show = "$ctrl.loog" ng-click="$ctrl.out()">Log Out</a> 
 		</div>
 	</div>
 </div>

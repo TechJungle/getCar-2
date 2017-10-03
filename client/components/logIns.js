@@ -5,10 +5,10 @@ angular.module('get-car')
 	  $scope.submit = function(){
       
       $scope.user = {user : $scope.username , password : $scope.password};
-        console.log($scope.user)
+        console.log($scope.user + "========")
       $http.post("/logIn", $scope.user).then(function(data){
-        $scope.$parent.$ctrl.loog = true;
-        $scope.$parent.logIn = false;
+        console.log(data + "======+++++++++++++=")
+        window.location = "../../index.html"
     })
   }
 	},

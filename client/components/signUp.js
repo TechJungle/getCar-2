@@ -18,7 +18,7 @@ angular.module('get-car')
 
         $http.post("/signUp", $scope.newUse).then(function(data){
           $scope.$parent.signUp = false;
-          $scope.$parent.$ctrl.loog = true;
+          window.location = "../../index.html"
         }, function(data){
           console.log("error??")
         }) 

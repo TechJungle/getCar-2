@@ -6,7 +6,7 @@ angular.module('get-car')
 		loog: "<"
 	},
 
-controller : function($scope) {
+controller : function($scope, $http) {
 
 	console.log(this.loog + "========")
 	
@@ -27,6 +27,11 @@ controller : function($scope) {
 	$scope.add = function () {
 		$scope.$parent.addd()
 	}
+	this.out = function(){
+			$http.get('/logout').then(function(data){
+				window.location = "../../index.html"
+			})
+		}
 },
 
 	templateUrl: `
