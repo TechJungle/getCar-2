@@ -27,15 +27,20 @@
 
 <script type="text/javascript">
   var module = angular.module("logIn",[])
+// var home = JSON.stringify("http://localhost:5000/index.html");
 
 module.controller("logInCtrl",['$scope','$http', function($scope, $http){
   
   $scope.submit = function(){
     $scope.user = {user : $scope.username , password : $scope.password};
+
     console.log($scope.user)
     $http.post("/logIn", $scope.user).then(function(data){
         window.location = "../../index.html"
+    }, function(data){
+      console.log('err')
     })
+
   }
 
 }]);
