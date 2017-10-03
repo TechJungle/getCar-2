@@ -6,9 +6,9 @@ var Schema = mongoose.Schema;
 // car schema
 var carSchema = new Schema({
 	image: String,
-  type : String,
-  color:String,
-  price:String
+    type : {type: String, uppercase: true},
+    color: {type: String, uppercase: true},
+    price:String
 })
 var carModel = mongoose.model('carModel',carSchema);
 
