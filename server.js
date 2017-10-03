@@ -4,6 +4,8 @@ var bodyParser=require('body-parser');
 var path = require('path')
 var user = require("./db/db.js");
 var car = require("./db/carDB.js")
+var bcrypt = require('bcrypt-nodejs');
+var Promise = require('bluebird');
 var app = express();
 var session = require("express-session")
 var Promise = require('bluebird')
@@ -35,6 +37,7 @@ var home = JSON.stringify("http://localhost:5000/index.html");
 
 
 app.post("/logIn",function(req,res){
+
 	var pass = req.body.password;
 	console.log(req.body.user);
 	var red = "index.html";
@@ -78,13 +81,21 @@ app.get('/logout', function(req, res) {
   .end(home)
   // res.send(home)
 });
+var hashPassword = function(string) {
+    var cipher = Promise.promisify(bcrypt.hash);
+    return cipher(string, null, null)
+      .then(function(hash) {
+        console.log(hash,"=====================================hashed password");
+      });
+  }
+
 
 app.post("/signUp",function(req,res){
 	console.log(req.body)
 
     var userr = new user ({
 	username: req.body.name,
-	password: req.body.password,
+	password: hashPassword(req.body.password),
 	phone: req.body.numberPhon,
 	email: req.body.email })
 userr.save(function(err, userr){
