@@ -14,7 +14,7 @@
 	<h4>Filter By: </h4>
 	<h5>Type:</h5>
 	<form >
-		<input type="radio" name="type" ng-model="$parent.type" value = ""> All <br/>
+		<input type="radio" name="type" ng-model="$parent.type" value = bmw> All <br/>
 		<div ng-repeat = "item in $ctrl.searchtt | filter : color | unique: 'type' " >
 		<input type="radio" name="type" ng-model="$parent.type" value={{item.type}}> {{item.type}} <br/>
 		</div>
