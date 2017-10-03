@@ -5,6 +5,8 @@ var db = mongoose.connection;
 var Schema = mongoose.Schema;
 // car schema
 var carSchema = new Schema({
+	name:String,
+	phone:Number,
 	image: String,
   type : String,
   color:String,

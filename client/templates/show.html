@@ -1,5 +1,14 @@
-<div class = "show">
-	<img ng-src="{{$ctrl.car.image}}" class="img" >
-	<br/>
-	{{$ctrl.car.type}} color: {{$ctrl.car.color}} price: {{$ctrl.car.price}}
+<!-- <div class = "container">
+	<div class="jumbotron">
+		<h1>Image Gallry</h1>
+		<p> These are my collection </p>
+	</div> -->
+	<div class="row" >
+<div class="col-lg-4" style=" margin-left: 600px; margin-top: 10px;">
+	<div class="thumbnail">
+		<img ng-src="{{$ctrl.car.image}}" class="img" >
+		<h5 style=" margin-left: 150px; margin-top: 10px;">Type : {{$ctrl.car.type}} </br> color : {{$ctrl.car.color}} </br> price : {{$ctrl.car.price}}</h5>
+	</div>
 </div>
+	</div>
+<!-- </div> -->

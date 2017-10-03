@@ -1,14 +1,37 @@
+
+<nav class="navbar navbar-default ">
+	<div class="container-fluid"  >
+		<div class="navbar-header">
+		<a href="#" class="navbar-brand"> getCar </a>
+	</div>
+
+	<div>
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="../../index.html">HOME</a></li>
+      <li><a href="client/templates/login.html"> LOG IN</a></li>
+      <li><a href="client/templates/add.html">   ADD CAR </a></li>
+      <li><a href="client/templates/signup.html">SIGN UP </a></li>
+      <li><a href="client/templates/about.html">ABOUT US</a></li>
+		</ul>
+		</div>
+		<form class="navbar-form">
+			<div class="form-group">
+				<input type="text"  ng-model="search" class="form-control" placeholder="Search...." style="margin-left: 50px; margin-top:0px; width:500px" ></input>
+			</div>
+		</form>
+	</div>
+</nav>
+
 <div class = "show" >
 	<show ng-repeat = "item in $ctrl.searchtt | filter: search | filter: type | filter: color |filter: price|filter: filterRange | orderBy:'':true"
 		  car = "item">
-		
 	</show>
-	
+
 </div>
 
 <div class="filters">
 	<div>
-		<input type="text" ng-model="search" placeholder="Search ...">
+		<!-- <input type="text" ng-model="search" placeholder="Search ..."> -->
 	</div>
 	<br/>
 	<h4>Filter By: </h4>
@@ -22,7 +45,6 @@
 	<br/>
 	<h5>Price:</h5>
 	<form>
-
 		<input type="radio" name="price" ng-model="$parent.price" ng-click = "all()" vlaue = ""> All <br/>
 		<input type="radio" name="price" value="< 5000" ng-model="$parent.price" ng-click = "min()" > Less than 5000$ <br/>
 		<input type="radio" name="price" value="5000 - 10000" ng-model="$parent.price" ng-click = "mid()"> 5000$ - 10000$ <br/>
