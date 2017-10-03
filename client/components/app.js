@@ -3,6 +3,21 @@ angular.module('get-car')
 // Sidebar Component
 .component('app', {
 	controller: function($scope, $http){
+	$scope.logIn;
+	this.loog = false;
+	$scope.change = function(){
+		$scope.logIn = true
+		$scope.signUp = false
+	}
+	$scope.signUp
+	$scope.changes = function(){
+		$scope.signUp = true
+		$scope.logIn = false
+	}
+	$scope.add
+	$scope.addd = function(){
+		$scope.add = true
+	}
 	this.searchTest = [];
 	console.log(this.searchTest)
 	var that = this;

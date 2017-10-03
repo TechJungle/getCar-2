@@ -24,12 +24,11 @@ app.get('/data',function(req, res){
 	// res.json(searchTest)
 	// res.end()
 })
-var home = JSON.stringify("http://localhost:5000/index.html");
 app.post("/logIn",function(req,res){
 	console.log(req.body.user)
 	var red = "index.html"
 	user.findOne({username: req.body.user, password: req.body.password}, function(err, data){
-		if (data){ res.send(home)
+		if (data){ res.send(data)
 } else{console.log('wrong')}
 	})
 })
@@ -70,8 +69,6 @@ app.post("/add",function(req,res){
 		console.log(err)
 	}
 })
-
-res.end(home)
 
 })
 

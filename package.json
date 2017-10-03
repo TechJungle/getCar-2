@@ -4,6 +4,7 @@
   "description": "This application will help costumers to find their dream car.",
   "main": "index.js",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "express": "^4.16.1",
     "express-fileupload": "^0.2.0",
     "express-session": "^1.15.6",
