@@ -7,22 +7,11 @@
     height: 100%;
   }
 
-/*body {
-   background: #EEE;
-   font: 10px/13px 'Lucida Sans',sans-serif;
-}*/
-
-/*.wrap {
-   overflow: hidden;
-   margin: 10px;
-}*/
-
 .show {
    float: left;
    position: relative;
    margin-left: 150px;
    margin-top: 100px;
-
 }
 
 .img {
