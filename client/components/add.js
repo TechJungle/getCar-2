@@ -1,8 +1,10 @@
 angular.module('get-car')
 
+// Our treasure hunt ..
 .component('add', {
 	controller: function ($scope, $http){
 
+      // uploading the image ..
       $scope.image = document.getElementById("image").onchange = function(evt){
         var tgt = evt.target || window.event.srcElement,
         files = tgt.files;
@@ -10,11 +12,11 @@ angular.module('get-car')
           var fr = new FileReader();
           fr.onload = function(){
                 $scope.image.src =  fr.result;
-          }
+          };
           fr.readAsDataURL(files[0]);
 
         }
-      }
+      };
 
     $scope.add = function(){
 
@@ -22,7 +24,6 @@ angular.module('get-car')
     $scope.car = {type : $scope.type , color : $scope.color , price : $scope.price , image : $scope.image.src};
 
     if($scope.car.type !== undefined && $scope.car.color !== undefined  && $scope.car.price !== undefined && $scope.car.image !== undefined){
-       console.log($scope.car)
       //send the car to the server
     $http.post("/add" , $scope.car)
       .then(function(data){
@@ -30,12 +31,12 @@ angular.module('get-car')
         window.location = "../../index.html"
       }, function(data){
           console.log("ERROR !!")
-        })
-  }
-}
+        });
+  };
+};
   
 },
 	templateUrl: `
     client/templates/add.html
 	`
-})
+});
