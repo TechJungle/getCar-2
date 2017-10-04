@@ -61,7 +61,6 @@ angular.module('get-car')
 		function(response){
 			console.log(response)
 		});
-
 	},
 
 /* Take a rest, you earned it ...

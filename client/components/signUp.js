@@ -1,5 +1,4 @@
 angular.module('get-car')
-
 // Join us now or be ready to fight ..
 /*             .-. \_/ .-.
                \.-\/=\/.-/
@@ -43,7 +42,7 @@ angular.module('get-car')
 	templateUrl: `
     client/templates/signUp.html
 	`
-})
+});
 
        // // // // // // // // // // // // // // //   ,:
        //                                           ,' |

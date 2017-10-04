@@ -17,7 +17,6 @@ angular.module('get-car')
 	bindings:{
 		loog: "<"
 	},
-
 	controller : function($scope, $http) {
 
 		// These functions connected with the app.js ..

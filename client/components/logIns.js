@@ -1,5 +1,4 @@
 angular.module('get-car')
-
 /*
               ________
              / ______ \

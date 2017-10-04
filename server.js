@@ -117,8 +117,7 @@ app.post("/add",function(req,res){
 		price: req.body.price,
 		image: req.body.image
 	});
-
-	carr.save(function(err, carr){
+  carr.save(function(err, carr){
 		if (err){
 			console.log(err)
 		};
