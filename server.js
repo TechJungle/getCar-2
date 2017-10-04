@@ -37,7 +37,7 @@ app.post("/logIn",function(req,res){
 	// Looking for the username ..
 	user.findOne({username: req.body.user}, function(err, user){
 		if (!user){ 
-			console.log('wrong');
+			res.send('Wrong UserName !');
 		} else {
 			// If found compare his password
 			bcrypt.compare(req.body.password, user.password, function(err, hash){
@@ -46,15 +46,15 @@ app.post("/logIn",function(req,res){
 					req.session.regenerate(function(data) {
 						// and assign him as logged.
 						logged = true;
+						res.end()
        						});
 
-				} else {console.log("wroooooooooong");}
+				} else {res.send('Worng Password !!');}
 
 			});
 
 		}	
-	});		
-	res.end();
+	});	
 });
 
 // The logOut handling get.

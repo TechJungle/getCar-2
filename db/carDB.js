@@ -15,7 +15,7 @@ var db = mongoose.connection;
 var Schema = mongoose.Schema;
 // car schema
 var carSchema = new Schema({
-	image: String,
+	  image: String,
     type : {type: String, uppercase: true},
     color: {type: String, uppercase: true},
     price:String
