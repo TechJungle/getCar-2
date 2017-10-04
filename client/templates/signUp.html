@@ -1,12 +1,79 @@
 <!DOCTYPE html>
 <html lang='en' ng-app="SignUpApp">
 <head>
-	<title></title>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-	
+  <title> Add Car </title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <!-- <script src="../modules/add.js"></script> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+
 <body ng-app="signUp" ng-controller="signUpController">
-	<div>
+
+	<nav class="navbar navbar-default navbar-fixed-top">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	    <a href="/index.html" class="navbar-brand"> getCar </a>
+	  </div>
+
+	  <div>
+	    <ul class="nav navbar-nav navbar-right">
+	      <li><a href="../../index.html">HOME</a></li>
+	      <li><a href="login.html"> LOG IN</a></li>
+	      <li><a href="add.html">   ADD CAR </a></li>
+	      <li><a href="signup.html">SIGN UP </a></li>
+	      <li><a href="about.html">ABOUT US</a></li>
+	    </ul>
+	  </div>
+	  </div>
+	</nav>
+
+
+	<div class="container">
+    <div class="col-sm-10" style="width : 600px; margin-left: 250px; margin-top: 50px;">
+      <div class="jumbotron" style="margin-top: 50px">
+        <div  class="form-group" style="margin-top:-50px">
+            <h1 style="margin-left:70px"> <label>SIGN UP</label> </h1>
+        </div>
+        <form class="form-horizantal">
+          <div class="form-group input-group" >
+            <span class="input-group-addon">
+          <span class="glyphicon glyphicon-pencil"></span>
+        </span>
+          <input type="text" ng-model="newUser.name"     class="form-control" id="name"  placeholder="User Name ..."required></input>
+        </div>
+        <div class="form-group input-group" >
+          <span class="input-group-addon">
+        <span class="glyphicon glyphicon-pencil"></span>
+      </span>
+        <input type="text" ng-model="newUser.password"    class="form-control" id="color"  placeholder="Password ..."required></input>
+      </div>
+            <div class="form-group input-group" >
+              <span class="input-group-addon">
+              <span class="glyphicon glyphicon-pencil"></span>
+            </span>
+            <input type="text" ng-model="newUser.numberPhon"  class="form-control" id="type" placeholder="Phone # ..." required></input>
+          </div>
+
+          <div class="form-group input-group" >
+            <span class="input-group-addon">
+            <span class="glyphicon glyphicon-pencil"></span>
+          </span>
+          <input type="text" ng-model="newUser.email"  class="form-control" id="price"placeholder="email ..."  required></input>
+        </div>
+
+
+    <div class="form-group " >
+      <button class = "btn btn-primary " type="submit"     ng-click="add()"  value="add new user"   class="form-control"id="add" style="width: 452px"> Submit </button>
+  </div>
+        </form>
+      </div>
+    </div>
+</div>
+
+	<!-- <div>
 		<h2>CREATE AN ACCOUNT</h2>
 		<form ng-submit="addUser()">
 			<p>Full Name: </p>
@@ -20,14 +87,14 @@
 			<input type="submit" value="add new user">
 		</form>
 			{{newUse}}
-	</div>
+	</div> -->
 
 
 	<script type="text/javascript">
 		var SignUpApp = angular.module('SignUpApp', []);
 
 		SignUpApp.controller("signUpController",  function($scope, $http){
-		
+
 			$scope.addUser=function(){
 				$scope.newUse = {
 					name: $scope.newUser.name,
@@ -35,7 +102,7 @@
 					numberPhon: parseInt($scope.newUser.numberPhon),
 					email: $scope.newUser.email
 				};
-	
+
 				$scope.newUser.name = "";
 				$scope.newUser.password = "";
 				$scope.newUser.numberPhon = "";
@@ -45,9 +112,9 @@
 					window.location = "../../index.html"
 				}, function(data){
 					console.log("error??")
-				}) 
+				})
 			}
-		
+
 		});
 
 

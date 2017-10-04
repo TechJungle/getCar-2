@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-default ">
+<nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container-fluid"  >
 		<div class="navbar-header">
 		<a href="#" class="navbar-brand"> getCar </a>
@@ -21,19 +21,12 @@
 		</form>
 	</div>
 </nav>
+<div>
 
-<div class = "show" >
-	<show ng-repeat = "item in $ctrl.searchtt | filter: search | filter: type | filter: color |filter: price|filter: filterRange | orderBy:'':true"
-		  car = "item">
-	</show>
 
-</div>
 
-<div class="filters">
-	<div>
-		<!-- <input type="text" ng-model="search" placeholder="Search ..."> -->
-	</div>
-	<br/>
+<!-- <div class="col-sm-2" style="margin-top:100px"> -->
+
 	<h4>Filter By: </h4>
 	<h5>Type:</h5>
 	<form >
@@ -58,4 +51,14 @@
 		<input type="radio" name="color" ng-model="$parent.color" value={{item.color}}> {{item.color}} <br/>
 		</div>
 	</form>
+<!-- </div> -->
+
+
+<!-- <div class = "col-sm-8" > -->
+	<show  ng-repeat = "item in $ctrl.searchtt | filter: search | filter: type | filter: color |filter: price|filter: filterRange | orderBy:'':true"
+		  car = "item">
+	</show>
+
+<!-- </div> -->
+
 </div>
