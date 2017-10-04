@@ -10,6 +10,9 @@ var Promise = require('bluebird');
 var app = express();
 var session = require("express-session");
 
+
+app.use(bodyParser.json({limit: '5mb'}));
+app.use(bodyParser.urlencoded({limit: '5mb'}));
 app.use(session({secret : "session"}));
 app.use(morgan('dev'));
 app.use(bodyParser.json());

@@ -6,11 +6,12 @@
 	
 </div>
 
-<div class="filters">
-	<div>
-		<input type="text" ng-model="search" placeholder="Search ...">
+<div class="filters" style="width: 250px;">
+	<div style="margin-top: 50px;">
+		<input type="text" ng-model="search" placeholder="Search ..." style="width: 200px;">
 	</div>
 	<br/>
+	<div style="margin-left: 23px;">
 	<h4>Filter By: </h4>
 	<h5>Type:</h5>
 	<form >
@@ -36,4 +37,5 @@
 		<input type="radio" name="color" ng-model="$parent.color" value={{item.color}}> {{item.color}} <br/>
 		</div>
 	</form>
+</div>
 </div>

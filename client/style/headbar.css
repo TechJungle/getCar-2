@@ -2,7 +2,6 @@
 	position: relative;
 	height: 50px;
 	width: 100%;
-	background-color: red;
 }
 
 .nav {
@@ -21,4 +20,8 @@
 	position: absolute;
 	left : 50px;
 	top: -17px;
+}
+
+a {
+    text-decoration: none !important;
 }

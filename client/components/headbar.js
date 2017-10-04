@@ -33,10 +33,15 @@ angular.module('get-car')
 			$scope.$parent.signUp = null;
 			$scope.$parent.logIn = null;
 			$scope.$parent.add = null;
+			$scope.$parent.about = null;
 		};
 
 		$scope.add = function () {
 			$scope.$parent.addd();
+		};
+
+		$scope.abot = function () {
+			$scope.$parent.shabout();
 		};
 
 		// the log out function ...

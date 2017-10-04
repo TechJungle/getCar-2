@@ -19,6 +19,7 @@ angular.module('get-car')
 		$scope.logIn;
 		$scope.signUp;
 		$scope.add;
+		$scope.about;
 		// this one is from the server logged variable.
 		// check line 53.
 		this.loog = false;
@@ -28,6 +29,7 @@ angular.module('get-car')
 		$scope.change = function(){
 			$scope.logIn = true
 			$scope.signUp = false
+			$scope.about = false
 		};
 		
 		// This function is connected with the headbar 
@@ -35,6 +37,14 @@ angular.module('get-car')
 		$scope.changes = function(){
 			$scope.signUp = true
 			$scope.logIn = false
+			$scope.about = false
+		}
+
+		$scope.shabout = function(){
+			$scope.about = true
+			$scope.signUp = false
+			$scope.logIn = false
+			console.log($scope.about)
 		}
 		
 		// This function is connected with the headbar 
