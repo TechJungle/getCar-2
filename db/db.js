@@ -1,3 +1,18 @@
+/*
+
+               STARTING THE DOS EDITOR
+               -----------------------
+
+  /mmm\        /mmm\        /mmm\
+  (O o)        (O O)        (o o)
+    U            U            u           /mmm\
+  ||\  \\        / \\         .           (- -)
+ oOOo__oOOo   _____oOOo  ___________      __u_oOOo
+############  #########  ###########  ################
+(BAD ANSWER)   (RETRY)   (ONCE MORE)  (Bored & Asleep)
+*/
+
+
 var mongoose = require("mongoose");
 var mongoURI = "mongodb://localHost/doaa";
 // var mongoURI = "mongodb://techJungle:techJungle5@ds159344.mlab.com:59344/get-car";
