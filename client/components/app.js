@@ -23,7 +23,7 @@ angular.module('get-car')
 		// this one is from the server logged variable.
 		// check line 53.
 		this.loog = false;
-
+		this.userInfo;
 		// This function is connected with the headbar 
 		// and responsible of showing the log in template.
 		$scope.change = function(){
@@ -44,7 +44,6 @@ angular.module('get-car')
 			$scope.about = true
 			$scope.signUp = false
 			$scope.logIn = false
-			console.log($scope.about)
 		}
 		
 		// This function is connected with the headbar 
@@ -61,10 +60,11 @@ angular.module('get-car')
 		.then(
 			function(response){
 			  // assigning the logged status to the loog variable.
-			  $scope.$ctrl.loog = response.data[response.data.length - 1]
+			  $scope.$ctrl.loog = response.data[response.data.length - 2]
+			  $scope.$ctrl.userInfo = response.data[response.data.length - 1]
 
 			  // saving the cars objects and removing the looged in status. 
-			  for (var i=0; i<response.data.length - 1; i++){
+			  for (var i=0; i<response.data.length - 2; i++){
 				$scope.$ctrl.searchTest.push(response.data[i])
 			  }
 		}, 

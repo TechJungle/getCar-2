@@ -35,7 +35,7 @@ angular.module('get-car')
 			$scope.$parent.add = null;
 			$scope.$parent.about = null;
 		};
-
+		
 		$scope.add = function () {
 			$scope.$parent.addd();
 		};

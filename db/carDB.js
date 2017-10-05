@@ -15,10 +15,12 @@ var db = mongoose.connection;
 var Schema = mongoose.Schema;
 // car schema
 var carSchema = new Schema({
+    username: String,
+    phone: Number,
 	  image: String,
     type : {type: String, uppercase: true},
     color: {type: String, uppercase: true},
-    price:String
+    price: Number
 });
 var carModel = mongoose.model('carModel',carSchema);
 

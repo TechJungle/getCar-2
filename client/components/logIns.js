@@ -20,7 +20,7 @@ angular.module('get-car')
 	  $scope.submit = function(){
       $scope.user = {user : $scope.username , password : $scope.password};
       $http.post("/logIn", $scope.user).then(function(data){
-        if (data.data ){
+        if (data.data){
         $scope.errorMessage = data.data
       } else {
         window.location = "../../index.html"

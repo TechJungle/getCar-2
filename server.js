@@ -3,8 +3,8 @@ var express = require('express');
 var morgan = require('morgan');
 var bodyParser=require('body-parser');
 var path = require('path')
-var user = require("./db/db.js"); // Our user database
-var car = require("./db/carDB.js") // Our car database
+var user = require("./DB/db.js"); // Our user database
+var car = require("./DB/carDB.js") // Our car database
 var bcrypt = require('bcrypt-nodejs');
 var Promise = require('bluebird');
 var app = express();
@@ -22,11 +22,13 @@ app.use(express.static(__dirname + '/'));
 // This variable will tell the app if there's anyone logged in.
 var logged = false;
 
+var userlogged = []
+
 // This get will start at the beginning to bring all the data from the cars database
 app.get('/data',function(req, res){
   car.find({}, function(err,data){
   	// Pushing the logged in variable with the data
-	data.push(logged);
+	data.push(logged ,userlogged);
 	// Sending data to the front end.
 	res.json(data);
   });
@@ -45,7 +47,9 @@ app.post("/logIn",function(req,res){
 					// If matched begin a session ..
 					req.session.regenerate(function(data) {
 						// and assign him as logged.
+						console.log(user)
 						logged = true;
+						userlogged.push(user.username, user.phone)
 						res.end()
        						});
 
@@ -80,6 +84,7 @@ app.get('/logout', function(req, res) {
 	req.session.destroy(function() {
 		// Assign him as a quieter.
 		logged = false;
+		userlogged = [];
 		res.end();
 	});
 });
@@ -114,11 +119,14 @@ app.post("/signUp",function(req,res){
 // Our add new car handler ..
 app.post("/add",function(req,res){
 	// saving the new car ..
+	console.log(req.body)
 	var carr = new car ({
 		type: req.body.type,
 		color: req.body.color,
 		price: req.body.price,
-		image: req.body.image
+		image: req.body.image,
+		username: req.body.username,
+		phone: req.body.phone
 	});
   carr.save(function(err, carr){
 		if (err){
